@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat Application</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-50">
+        <!-- Navbar -->
+        <nav class="fixed z-10 top-0 w-full bg-white shadow-sm border-b z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <button id="toggleMenu" class="p-2 rounded-md lg:hidden">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                        <h1 class="text-xl font-semibold text-gray-800 ml-2">Internship Assignment</h1>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Main Content -->
+        <div class="flex pt-16 min-h-screen">
+            <!-- Left Sidebar -->
+            <aside id="sidebar"
+                   class="hidden lg:flex lg:flex-col w-64 bg-white border-r">
+                <div class="flex-1 overflow-y-auto p-4 pt-16">
+                    <nav class="space-y-2">
+                        <a href="#"
+                           class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="#"
+                           class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                            <span>Messages</span>
+                        </a>
+                        <a href="#"
+                           class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                            <span>Settings</span>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50">
+                <div class="container mx-auto px-6 py-8">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Content Cards -->
+                        <a class="block rounded-lg shadow bg-gray-200 hover:bg-white p-6" href="{% url 'about' %}">
+                            <h3 class="text-lg font-semibold mb-4">Home</h3>
+                            <p class="text-gray-600">You can go back to home by clicking this card</p>
+                        </a>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold mb-4">About</h3>
+                            <p class="text-gray-600">
+                                This project is made for the internship assignment to demonstrate frontend development skills.
+                            </p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold mb-4">Technologies</h3>
+                            <p class="text-gray-600">Built using HTML, Tailwind CSS, and responsive design principles.</p>
+                        </div>
+                        <div class="bg-white rounded-lg shadow p-6">
+                            <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                            <p class="text-gray-600">Feel free to reach out via email or connect on LinkedIn for any queries.</p>
+                            <div class="flex items-center space-x-4 ">
+                                <a href="https://github.com/devangspsingh"
+                                   target="_blank"
+                                   class="text-blue-600 hover:text-gray-900">GitHub</a>
+                                <a href="https://www.linkedin.com/in/devangspsingh"
+                                   target="_blank"
+                                   class="text-blue-600 hover:text-gray-900">LinkedIn</a>
+                                <a href="mailto:devangshauryapratapsingh@gmail.com"
+                                   class="text-blue-600 hover:text-gray-900">Email</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Panel (now responsive) -->
+                    <div class="mt-6 bg-white border rounded-lg p-4 xl:hidden">
+                        <h3 class="text-lg font-semibold mb-4">Updates</h3>
+                        <div class="space-y-4">
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <p class="text-sm text-gray-600">Recent notification 1</p>
+                            </div>
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <p class="text-sm text-gray-600">Recent notification 2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- Right Panel (desktop version) -->
+            <aside class="hidden z-10 xl:block w-64 bg-white border-l p-4">
+                <h3 class="text-lg font-semibold mb-4">Updates</h3>
+                <div class="space-y-4">
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="text-sm text-gray-600">Recent notification 1</p>
+                    </div>
+                    <div class="p-3 bg-gray-50 rounded-lg">
+                        <p class="text-sm text-gray-600">Recent notification 2</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-white border-t">
+            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-gray-500 text-sm">© 2024 Internship Assignment. All rights reserved.</p>
+            </div>
+        </footer>
+        <script>
+            // Mobile menu toggle
+            document.getElementById('toggleMenu').addEventListener('click', () => {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('hidden');
+                sidebar.classList.toggle('fixed');
+                sidebar.classList.toggle('inset-0');
+                sidebar.classList.toggle('z-40');
+                sidebar.classList.toggle('lg:flex');
+                sidebar.classList.toggle('lg:relative');
+            });
+        </script>
+    </body>
+</html>

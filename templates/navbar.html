@@ -1,0 +1,49 @@
+<nav class="bg-purple-500/70 text-white fixed top-0 w-full z-10 shadow">
+    <div class="container mx-auto px-4 max-w-7xl mx-auto">
+        <div class="flex justify-between items-center py-2">
+            <!-- Brand Name -->
+            <div class="flex items-center space-x-4">
+                <div class="text-2xl font-bold">
+                    <a href="{% url 'user_list' %}" class="hover:underline">CHAT</a>
+                </div>
+                <div class="text-xl">
+                    <a href="{% url 'about' %}" class="hover:underline">About</a>
+                </div>
+            </div>
+            <!-- Icons and Logout (Visible on all screens) -->
+            <div class="flex items-center space-x-4">
+                <a href="https://www.linkedin.com/in/devangspsingh"
+                   target="_blank"
+                   aria-label="LinkedIn"
+                   class="hover:text-gray-200">
+                    <svg class="w-6 h-6"
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.267c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.267h-3v-4.816c0-1.151-.022-2.631-1.602-2.631-1.603 0-1.847 1.251-1.847 2.544v4.903h-3v-10h2.877v1.366h.041c.4-.756 1.377-1.555 2.835-1.555 3.031 0 3.59 1.996 3.59 4.588v5.601z" />
+                    </svg>
+                </a>
+                <a href="mailto:devangshauryapratapsingh@gmail.com"
+                   aria-label="Email"
+                   class="hover:text-gray-200">
+                    <svg class="w-6 h-6"
+                         xmlns="http://www.w3.org/2000/svg"
+                         fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M12 13.165l-8.923-6.874 17.846-.001zm-10.923-9.165v16h19.846v-16h-19.846zm9.923 8.835l-10-7.7v14.703l10-7.003 10 7.003v-14.703l-10 7.7z" />
+                    </svg>
+                </a>
+                {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'logout' %}" class="inline">
+                        {% csrf_token %}
+                        <button type="submit"
+                                class="bg-red-500 hover:bg-red-600 text-white py-1 px-4 rounded-lg">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="hover:underline">Login</a>
+                    <a href="{% url 'signup' %}" class="hover:underline">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
