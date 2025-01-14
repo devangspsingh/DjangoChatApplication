@@ -98,7 +98,7 @@
 <script>
     const userId = {{ other_user.id }};
     const chatSocket = new WebSocket(
-        'ws://' + window.location.host + '/ws/chat/' + userId + '/'
+        'wss://' + window.location.host + '/ws/chat/' + userId + '/'
     );
 
     // Scroll to bottom function
