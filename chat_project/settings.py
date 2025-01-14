@@ -133,6 +133,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 ASGI_APPLICATION = "chat_project.asgi.application"
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://assignment.dspsc.live',
+]
+
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
